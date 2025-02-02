@@ -3,33 +3,29 @@ import { ethers } from "ethers";
 async function main() {
   const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
 
-  // Ellenőrizd, hogy a szerződés címe helyes
-  const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"; // Frissítsd ha szükséges
+  // Always check if this is the correct address!
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   
+  // Use the ABI of the TestContractStringUtils !!!
   const contractAbi = [
-    {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
     {
       "inputs": [
         {
           "internalType": "string",
-          "name": "string1",
+          "name": "a",
           "type": "string"
         },
         {
           "internalType": "string",
-          "name": "string2",
+          "name": "b",
           "type": "string"
         }
       ],
-      "name": "ConcateStrs",
+      "name": "testConcatenation",
       "outputs": [
         {
           "internalType": "string",
-          "name": "concatedStrings",
+          "name": "",
           "type": "string"
         }
       ],
@@ -40,17 +36,17 @@ async function main() {
   
   const contract = new ethers.Contract(contractAddress, contractAbi, provider);
 
-  console.log(`Kapcsolódva a szerződéshez: ${contractAddress}`);
+  console.log(`Connected to contract at this address: ${contractAddress}`);
 
   const code = await provider.getCode(contractAddress);
   if (code === "0x") {
-    throw new Error("A szerződés nem létezik ezen a címen! Lehet, hogy újra kell deployolni.");
+    throw new Error("The contract does not exists on this address, maybe it should be deployed again.");
   }
 
   const signer = await provider.getSigner(); 
   const contractWithSigner = contract.connect(signer);
 
-  const concatenated: string = await (contractWithSigner as any).ConcateStrs("Tony + ", "Sziszi");
+  const concatenated: string = await (contractWithSigner as any).testConcatenation("Test - ", "Term");
   console.log("Eredmény: ", concatenated);
 }
 

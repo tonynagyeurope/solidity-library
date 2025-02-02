@@ -1,21 +1,29 @@
-import { ethers } from "hardhat";
+import hre from "hardhat";
+const { ethers } = hre;
 
-const CLASS_NAME = "TestContractStringUtils";
+const CONTRACT_NAME = "TestContractStringUtils"; 
 
 async function main() {
+    console.log("🚀 Deploying contract...");
+
+    // Get signer
     const [deployer] = await ethers.getSigners();
-    console.log("Deploying contract with account:", deployer.address);
+    console.log(`📢 Deploying contract with account: ${deployer.address}`);
 
-    const MyContract = await ethers.getContractFactory(CLASS_NAME);
-    const myContract = await MyContract.deploy();
+    // Get contract factory
+    const ContractFactory = await ethers.getContractFactory(CONTRACT_NAME);
+    const contract = await ContractFactory.deploy(); // Deploy contract
 
-    console.log("Contract deployed at: ", await myContract.getAddress());
+    await contract.waitForDeployment(); // Várjuk meg, amíg a szerződés teljesen települ
+
+    console.log(`✅ Contract deployed at address: ${await contract.getAddress()}`);
 }
 
 main().catch((error) => {
-    console.error(error);
+    console.error("❌ Deployment failed:", error);
     process.exitCode = 1;
 });
+
 
 
 
