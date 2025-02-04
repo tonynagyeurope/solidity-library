@@ -47,7 +47,7 @@ async function main() {
   const contractWithSigner = contract.connect(signer);
 
   const concatenated: string = await (contractWithSigner as any).testConcatenation("Test - ", "Term");
-  console.log("Eredmény: ", concatenated);
+  console.log("Result string: ", concatenated);
 }
 
 main().catch((error) => {
