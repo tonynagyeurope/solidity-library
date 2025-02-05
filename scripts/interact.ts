@@ -4,33 +4,20 @@ async function main() {
   const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
 
   // Always check if this is the correct address!
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = ""; // Provide contract address here
   
-  // Use the ABI of the TestContractStringUtils !!!
+  // Use the ABI of the deployed contract!
   const contractAbi = [
     {
       "inputs": [
         {
-          "internalType": "string",
-          "name": "a",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "b",
-          "type": "string"
+          "internalType": "uint256",
+          "name": "y",
+          "type": "uint256"
         }
       ],
-      "name": "testConcatenation",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "pure",
-      "type": "function"
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     }
   ];
   
@@ -46,8 +33,8 @@ async function main() {
   const signer = await provider.getSigner(); 
   const contractWithSigner = contract.connect(signer);
 
-  const concatenated: string = await (contractWithSigner as any).testConcatenation("Test - ", "Term");
-  console.log("Result string: ", concatenated);
+  const result: number = await (contractWithSigner as any).x;
+  console.log("Result string: ", result);
 }
 
 main().catch((error) => {
