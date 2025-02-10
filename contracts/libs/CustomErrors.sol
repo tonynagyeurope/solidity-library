@@ -22,4 +22,7 @@ library CustomErrors {
     
     /// @notice Function called with an invalid parameter
     error ErrorInvalidParameter(string param, bytes32 value);
+
+    /// @notice This token is not accepted
+    error ErrorTokenNotAccepted(address token);
 }
