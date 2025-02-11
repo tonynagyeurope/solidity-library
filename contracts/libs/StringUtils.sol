@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-/// @title String Utilities Library
-/// @dev Provides string manipulation functions for Solidity contracts.
-/// @author Tony Nagy
-
+/**
+* @title String Utilities Library
+* @dev Provides string manipulation functions for Solidity contracts.
+* @author Tony Nagy
+*/
 library StringUtils {
 
     /**

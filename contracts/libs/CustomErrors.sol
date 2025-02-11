@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-/// @title Custom Error Library
-/// @dev Provides reusable custom errors for Solidity contracts
-/// @author Tony Nagy
+/**
+* @title Custom Error Library
+* @dev Provides reusable custom errors for Solidity contracts
+* @author Tony Nagy
+*/
 library CustomErrors {
     /// @notice Unauthorized access attempt
     error ErrorUnauthorized();
