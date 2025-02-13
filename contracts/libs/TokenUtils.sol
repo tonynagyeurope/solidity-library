@@ -23,9 +23,19 @@ library TokenUtils {
     }
 }
 
-/// @notice ERC20 interface 
+/// @notice ERC-20 interface 
 interface IERC20 {
     function transfer(address recipient, uint256 amount) external returns (bool);
     function balanceOf(address account) external view returns (uint256);
     function totalSupply() external view returns (uint256);
+}
+/// @notice ERC-1363 interface
+interface IERC1363 is IERC20 {
+    function transferAndCall(address to, uint256 value) external returns (bool);
+    function transferFromAndCall(address from, address to, uint256 value) external returns (bool);
+}
+/// @notice ERC-777 interface
+interface IERC777 {
+    function send(address recipient, uint256 amount, bytes calldata data) external;
+    function balanceOf(address owner) external view returns (uint256);
 }
