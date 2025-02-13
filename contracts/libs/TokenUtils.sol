@@ -23,7 +23,7 @@ library TokenUtils {
     }
 
     /// @notice Helper function to check if an address is a contract (e.g. used by the ERC-777 functions)
-    function isContract(address account) private view returns (bool) {
+    function isContract(address account) internal view returns (bool) {
         return account.code.length > 0;
     }    
 }
