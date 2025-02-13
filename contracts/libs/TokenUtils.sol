@@ -44,3 +44,15 @@ interface IERC777 {
     function send(address recipient, uint256 amount, bytes calldata data) external;
     function balanceOf(address owner) external view returns (uint256);
 }
+
+/// @notice Minimal recipient interface for ERC-777 hooks
+interface IERC777Recipient {
+    function tokensReceived(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes calldata userData,
+        bytes calldata operatorData
+    ) external;
+}
