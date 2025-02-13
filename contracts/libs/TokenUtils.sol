@@ -21,6 +21,11 @@ library TokenUtils {
     function getTokenBalance(address token, address account) internal view returns (uint256) {
         return IERC20(token).balanceOf(account);
     }
+
+    /// @notice Helper function to check if an address is a contract (e.g. used by the ERC-777 functions)
+    function isContract(address account) private view returns (bool) {
+        return account.code.length > 0;
+    }    
 }
 
 /// @notice ERC-20 interface 
