@@ -23,7 +23,9 @@ library TokenUtils {
     }
 }
 
-/// @notice ERC20 interface for the support of "balanceOf" call
+/// @notice ERC20 interface 
 interface IERC20 {
+    function transfer(address recipient, uint256 amount) external returns (bool);
     function balanceOf(address account) external view returns (uint256);
+    function totalSupply() external view returns (uint256);
 }
