@@ -12,6 +12,9 @@ library CustomErrors {
 
     /// @notice Insufficient balance for the transaction
     error ErrorInsufficientBalance(uint256 available, uint256 required);
+
+    /// @notice Insufficient allowed balance for the transaction
+    error ErrorInsufficientAllowance(uint256 available, uint256 required);
     
     /// @notice Invalid address provided
     error ErrorInvalidAddress(address provided);
@@ -27,4 +30,7 @@ library CustomErrors {
 
     /// @notice This token is not accepted
     error ErrorTokenNotAccepted(address token);
+
+    /// @notice This token was already accepted
+    error ErrorTokenAlreadyAccepted(address token);
 }
