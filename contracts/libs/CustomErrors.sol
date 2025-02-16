@@ -27,4 +27,7 @@ library CustomErrors {
 
     /// @notice This token is not accepted
     error ErrorTokenNotAccepted(address token);
+
+    /// @notice This token was already accepted
+    error ErrorTokenAlreadyAccepted(address token);
 }
