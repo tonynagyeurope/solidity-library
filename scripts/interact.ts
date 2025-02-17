@@ -1,31 +1,54 @@
 import { ethers } from "ethers";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const RPC_URL = process.env.RPC_URL || "";
+if (!RPC_URL) {
+    throw new Error("❌ RPC_URL is not set in .env file!");
+}
+
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS || "";
+if (!CONTRACT_ADDRESS) {
+    throw new Error("❌ CONTRACT_ADDRESS is not set in .env file!");
+}
 
 async function main() {
-  const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
-
-  // Always check if this is the correct address!
-  const contractAddress = ""; // Provide contract address here
+  const provider = new ethers.JsonRpcProvider(RPC_URL);
   
   // Use the ABI of the deployed contract!
   const contractAbi = [
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "y",
-          "type": "uint256"
+          "internalType": "string",
+          "name": "a",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "b",
+          "type": "string"
         }
       ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "name": "testConcatenation",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
     }
   ];
   
-  const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+  const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi, provider);
 
-  console.log(`Connected to contract at this address: ${contractAddress}`);
+  console.log(`Connected to contract at this address: ${CONTRACT_ADDRESS}`);
 
-  const code = await provider.getCode(contractAddress);
+  const code = await provider.getCode(CONTRACT_ADDRESS);
   if (code === "0x") {
     throw new Error("The contract does not exists on this address, maybe it should be deployed again.");
   }
@@ -33,7 +56,7 @@ async function main() {
   const signer = await provider.getSigner(); 
   const contractWithSigner = contract.connect(signer);
 
-  const result: number = await (contractWithSigner as any).x;
+  const result: number = await (contractWithSigner as any).testConcatenation("Tony + ", "Sziszi");
   console.log("Result string: ", result);
 }
 

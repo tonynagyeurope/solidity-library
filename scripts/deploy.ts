@@ -8,11 +8,21 @@ if (!CONTRACT_NAME) {
     throw new Error("❌ CONTRACT_NAME is not set in .env file!");
 }
 
+const RPC_URL = process.env.RPC_URL || "";
+if (!RPC_URL) {
+    throw new Error("❌ RPC_URL is not set in .env file!");
+}
+
+const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || "";
+if (!DEPLOYER_PRIVATE_KEY) {
+    throw new Error("❌ DEPLOYER_PRIVATE_KEY is not set in .env file!");
+}
+
 async function main() {
     console.log("🚀 Deploying contract...");
 
-    const provider = new ethers.JsonRpcProvider(process.env.RPC_URL!);
-    const deployer = new ethers.Wallet(process.env.DEPLOYER_PRIVATE_KEY!, provider);
+    const provider = new ethers.JsonRpcProvider(RPC_URL);
+    const deployer = new ethers.Wallet(DEPLOYER_PRIVATE_KEY, provider);
 
     console.log(`📢 Deploying contract with account: ${deployer.address}`);
 
