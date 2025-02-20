@@ -53,7 +53,7 @@ This project is a Solidity library designed to provide utility functions and hel
 
 ## Usage
 
-    Import the library into your Solidity project as needed. For example:
+Import the library into your Solidity project as needed. For example:
 
     // Example usage in a Solidity contract
     import "path/to/contracts/StringUtils.sol";
@@ -66,4 +66,39 @@ This project is a Solidity library designed to provide utility functions and hel
         }
     }
 
+For deployment or running scripts written in TypeScript:
 
+    npx hardhat run scripts/deploy.ts --network <network_name>
+
+## API Documentation
+
+The contracts include NatSpec comments that describe the purpose, parameters, and return values for each function. You can generate API documentation using tools that parse NatSpec comments or refer directly to the source code.
+
+## Testing
+
+Tests are implemented using Hardhat's testing framework. To run the tests, execute:
+
+    npx hardhat test
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+    Fork the repository.
+    Create a new branch for your feature or bug fix.
+    Commit your changes with clear messages.
+    Submit a pull request detailing your changes.
+
+Please adhere to the existing coding standards and document your code with NatSpec comments where appropriate.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For further information or any questions, please contact:
+
+    Developer: Tony Nagy
+    Email: tony@imagella.com or tony.nagy.europe@gmail.com
+    Website: www.imagella.com
