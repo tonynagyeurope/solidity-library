@@ -18,3 +18,52 @@ This project is a Solidity library designed to provide utility functions and hel
 - **Hardhat Environment:** Uses Hardhat for compiling, testing, and deploying contracts.
 - **Cross-Platform Development:** Developed on Linux Ubuntu with a Node.js environment.
 
+## Library Structure
+
+├── contracts
+│   ├── CustomErrors.sol       // Custom error definitions with NatSpec
+│   ├── Modifiers.sol          // Common modifiers for contracts
+│   ├── StringUtils.sol        // Utility functions for string manipulation
+│   └── TokenUtils.sol         // Functions for token management
+├── scripts
+│   └── [Deployment and utility scripts written in TypeScript]
+├── test
+│   └── [Hardhat tests for the contracts]
+├── hardhat.config.ts          // Hardhat configuration file
+├── package.json               // Node.js package file
+├── tsconfig.json              // TypeScript configuration file
+└── README.md                  // This file
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <REPO_URL>
+   cd solidity-library
+
+2. **Install dependencies:**
+
+    npm install
+
+3. **Configure Environment:**
+
+    Ensure Node.js (v14 or later) is installed.
+    Set up any environment variables in a .env file if needed.
+
+## Usage
+
+    Import the library into your Solidity project as needed. For example:
+
+    // Example usage in a Solidity contract
+    import "path/to/contracts/StringUtils.sol";
+
+    contract Example {
+        using StringUtils for string;
+
+        function exampleFunction(string memory input) public pure returns (string memory) {
+            return input.toUpperCase();
+        }
+    }
+
+
