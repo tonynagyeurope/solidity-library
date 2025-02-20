@@ -8,7 +8,7 @@ Useful solidity utils for developers by Tony Nagy
 
 ## Overview
 
-This project is a Solidity library designed to provide utility functions and helper contracts for a crypto payment solution implemented in another private repository (for www.imagella.com). The library is continuously developed and documented with NatSpec comments to ensure clear, self-explanatory code.
+This project is a Solidity library designed to provide utility functions and helper contracts for a crypto payment solution implemented in another private repository (for www.imagella.com), though it can be used freely in any other projects. The Imagella crypto payment solution is primarily focused on micropayments, offering extremely low transaction fees for low-value transactions (e.g., in the range of $1-$5) while remaining highly cost-effective for larger amounts as well. Additionally, the solution includes a robust fallback mechanism that leverages multiple low-fee networks in case of network congestion or unavailability. The library is continuously developed and documented with NatSpec comments to ensure clear, self-explanatory code.
 
 ## Features
 
