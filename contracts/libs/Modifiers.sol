@@ -52,4 +52,12 @@ library Modifiers {
             revert CustomErrors.ErrorAlreadyExecuted(timestamp);
         }
     }
+
+    /// @notice Ensures a function using valid address only
+    /// @param _token is the address to validate
+    modifier onlyValidAddress(address _token) {
+        require(_token != address(0), "Token address cannot be zero");
+        _;
+    }
+
 }
