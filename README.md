@@ -1,4 +1,5 @@
 # solidity-library
+
 Useful solidity utils for developers by Tony Nagy
 
 # Solidity Library for Crypto Payment Solutions
@@ -20,7 +21,7 @@ This project is a Solidity library designed to provide utility functions and hel
 
 ## Library Structure
 
-```
+````
 contracts/
   CustomErrors.sol       // Custom error definitions with NatSpec
   Modifiers.sol          // Common modifiers for contracts
@@ -107,3 +108,4 @@ For further information or any questions, please contact:
     Developer: Tony Nagy
     Email: tony@imagella.com or tony.nagy.europe@gmail.com
     Website: www.imagella.com
+````

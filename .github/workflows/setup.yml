@@ -3,7 +3,7 @@ name: CI - Solidity Library - testing string utilities
 # We run this test only for push events
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 # Setup jobs
 jobs:
@@ -30,12 +30,12 @@ jobs:
 
       # 5. Testing the string manipulation methods
       - name: Testing string manipulation methods
-        run: npx hardhat test        
+        run: npx hardhat test
 
       # 6. Saving the artifacts
       - name: Saving artifacts
         uses: actions/upload-artifact@v4
         with:
-            name: contract-artifacts
-            path: artifacts/
+          name: contract-artifacts
+          path: artifacts/
         if: success()

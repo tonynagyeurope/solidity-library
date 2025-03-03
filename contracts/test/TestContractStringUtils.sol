@@ -23,6 +23,6 @@ contract TestContractStringUtils {
     string calldata a,
     string calldata b
   ) public pure returns (bool) {
-      return StringUtils.equals(a, b);
-  }  
+    return StringUtils.equals(a, b);
+  }
 }
