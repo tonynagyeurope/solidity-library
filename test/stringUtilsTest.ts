@@ -31,4 +31,15 @@ describe("Contract Deployment and Address Retrieval", function () {
         const result = await contract.testConcatenation(a, b);
         expect(result).to.equal(expectedString); 
     });
+
+    it("should test the equals method", async function () {
+        let a: string = "Solidity";
+        let b: string = "Solidity";
+        let c: string = "Ethereum";
+        const resultEqual = await contract.equals(a, b);
+        expect(resultEqual).to.equal(true);
+        const resultNotEqual = await contract.equals(a, c);
+        expect(resultNotEqual).to.equal(false);        
+    });    
 });
+

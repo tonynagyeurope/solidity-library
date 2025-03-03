@@ -17,4 +17,12 @@ contract TestContractStringUtils {
   ) public pure returns (string memory) {
     return StringUtils.concatenate(a, b);
   }
+
+  /// @dev Tests the "equals" string method
+  function equals(
+    string calldata a,
+    string calldata b
+  ) public pure returns (bool) {
+      return StringUtils.equals(a, b);
+  }  
 }
