@@ -2,35 +2,35 @@
 pragma solidity ^0.8.0;
 
 /**
-* @title Custom Error Library
-* @dev Provides reusable custom errors for Solidity contracts
-* @author Tony Nagy
-*/
+ * @title Custom Error Library
+ * @dev Provides reusable custom errors for Solidity contracts
+ * @author Tony Nagy
+ */
 library CustomErrors {
-    /// @notice Unauthorized access attempt
-    error ErrorUnauthorized();
+  /// @notice Unauthorized access attempt
+  error ErrorUnauthorized();
 
-    /// @notice Insufficient balance for the transaction
-    error ErrorInsufficientBalance(uint256 available, uint256 required);
+  /// @notice Insufficient balance for the transaction
+  error ErrorInsufficientBalance(uint256 available, uint256 required);
 
-    /// @notice Insufficient allowed balance for the transaction
-    error ErrorInsufficientAllowance(uint256 available, uint256 required);
-    
-    /// @notice Invalid address provided
-    error ErrorInvalidAddress(address provided);
+  /// @notice Insufficient allowed balance for the transaction
+  error ErrorInsufficientAllowance(uint256 available, uint256 required);
 
-    /// @notice Contract is currently paused
-    error ErrorContractPaused();
+  /// @notice Invalid address provided
+  error ErrorInvalidAddress(address provided);
 
-    /// @notice Transaction has already been executed
-    error ErrorAlreadyExecuted(uint256 timestamp);
-    
-    /// @notice Function called with an invalid parameter
-    error ErrorInvalidParameter(string param, bytes32 value);
+  /// @notice Contract is currently paused
+  error ErrorContractPaused();
 
-    /// @notice This token is not accepted
-    error ErrorTokenNotAccepted(address token);
+  /// @notice Transaction has already been executed
+  error ErrorAlreadyExecuted(uint256 timestamp);
 
-    /// @notice This token was already accepted
-    error ErrorTokenAlreadyAccepted(address token);
+  /// @notice Function called with an invalid parameter
+  error ErrorInvalidParameter(string param, bytes32 value);
+
+  /// @notice This token is not accepted
+  error ErrorTokenNotAccepted(address token);
+
+  /// @notice This token was already accepted
+  error ErrorTokenAlreadyAccepted(address token);
 }

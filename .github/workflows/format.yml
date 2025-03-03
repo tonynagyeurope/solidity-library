@@ -1,0 +1,19 @@
+name: CI - Format Code (.sol, .ts, .tsx)
+on:
+  push:
+    paths:
+      - '**/*.sol'
+      - '**/*.ts'
+      - '**/*.tsx'
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install  # Installing all dependencies
+      - run: npx prettier --write "**/*.{sol,ts,tsx}"  # Format all Solidity and TypeScript files
+      - run: |
+          git diff --exit-code || (git add . && git commit -m "Auto-format with Prettier" && git push)

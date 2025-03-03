@@ -1,0 +1,41 @@
+name: CI - Solidity Library - testing string utilities
+
+# We run this test only for push events
+on:
+  push:
+    branches: [ main ]
+
+# Setup jobs
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Download the library code
+      - uses: actions/checkout@v3
+
+      # 2. Node.js setup
+      - name: Node.js setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Hardhat works fine with this version
+
+      # 3. Install the dependecies
+      - name: Installing dependencies
+        run: npm install
+
+      # 4. Compile the project
+      - name: Compiling project
+        run: npx hardhat compile
+
+      # 5. Testing the string manipulation methods
+      - name: Testing string manipulation methods
+        run: npx hardhat test        
+
+      # 6. Saving the artifacts
+      - name: Saving artifacts
+        uses: actions/upload-artifact@v4
+        with:
+            name: contract-artifacts
+            path: artifacts/
+        if: success()
