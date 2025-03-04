@@ -33,8 +33,9 @@ scripts/
 
 test/
   [Hardhat tests for the libraries]
-    - String Utils Test
-    - 
+    - Installation, compilation tests and artifact uploads
+    - StringUtils Tests
+    - Automated code formatting
 
 hardhat.config.ts         // Hardhat configuration file
 package.json              // Node.js package file

@@ -42,4 +42,9 @@ contract TestContractStringUtils {
   ) public pure returns (string memory) {
     return StringUtils.substring(a, from, to);
   }    
+
+  /// @dev Tests the "trim" method
+  function trim(string memory str) public pure returns (string memory) {
+    return StringUtils.trim(str);
+  } 
 }

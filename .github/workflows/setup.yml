@@ -1,4 +1,4 @@
-name: CI - Solidity Library - testing string utilities
+name: CI - Solidity Library - installing, testing string utilities, uploading artifacts
 
 # We run this test only for push events
 on:

@@ -6,20 +6,20 @@ describe('Contract Deployment and Address Retrieval', function () {
   let contract: Contract;
   let contractAddress: string;
 
-  // A teszt előtt deployoljuk a szerződést
+  // Deploying the contract first
   before(async function () {
-    // Szerződés factory létrehozása
+    // Creating the contract object
     const TestContractStringUtils = await ethers.getContractFactory('TestContractStringUtils');
-    // Szerződés telepítése
+    // Deploying the contract
     contract = await (TestContractStringUtils as any).deploy();
-    // Várjuk meg, amíg a deploy befejeződik
+    // Waiting for the deployment
     await contract.waitForDeployment();
-    // Cím megszerzése
+    // Getting the contract's address
     contractAddress = contract.target as string;
   });
 
   it('should deploy the contract and return a valid address', async function () {
-    // Ellenőrizzük, hogy a cím létezik-e és valid-e
+    // Checking if the contract address exists and valid
     expect(contractAddress).to.be.a('string');
     expect(contractAddress).to.match(/^0x[a-fA-F0-9]{40}$/);
   });
@@ -56,7 +56,13 @@ describe('Contract Deployment and Address Retrieval', function () {
     let a: string = 'Tony Nagy';
     let from: number = 2;
     let to: number = 4;
-    const resultEqual = await contract.substring(a, from, to);
-    expect(resultEqual).to.equal("ny");
+    const result = await contract.substring(a, from, to);
+    expect(result).to.equal("ny");
   });  
+
+  it('should test the trim method', async function () {
+    let stringWithSpaces: string = '    Tony            ';
+    const result = await contract.trim(stringWithSpaces);
+    expect(result).to.equal('Tony');
+  });    
 });
