@@ -28,7 +28,7 @@ describe('Contract Deployment and Address Retrieval', function () {
     let expectedString: string = 'TonyNagy';
     let a: string = 'Tony';
     let b: string = 'Nagy';
-    const result = await contract.testConcatenation(a, b);
+    const result = await contract.concatenation(a, b);
     expect(result).to.equal(expectedString);
   });
 
@@ -41,4 +41,22 @@ describe('Contract Deployment and Address Retrieval', function () {
     const resultNotEqual = await contract.equals(a, c);
     expect(resultNotEqual).to.equal(false);
   });
+
+  it('should test the contains method', async function () {
+    let a: string = 'Tony Nagy';
+    let b: string = 'Tony';
+    let c: string = 'Ethereum';
+    const resultEqual = await contract.contains(a, b);
+    expect(resultEqual).to.equal(true);
+    const resultNotEqual = await contract.contains(a, c);
+    expect(resultNotEqual).to.equal(false);
+  });  
+
+  it('should test the substring method', async function () {
+    let a: string = 'Tony Nagy';
+    let from: number = 2;
+    let to: number = 4;
+    const resultEqual = await contract.substring(a, from, to);
+    expect(resultEqual).to.equal("ny");
+  });  
 });

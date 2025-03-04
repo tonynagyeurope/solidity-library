@@ -10,19 +10,36 @@ import {StringUtils} from '../libs/StringUtils.sol';
 contract TestContractStringUtils {
   using StringUtils for string;
 
-  /// @dev Tests the "concatenate" string function
-  function testConcatenation(
+  /// @dev Tests the "concatenate" method
+  function concatenation(
     string calldata a,
     string calldata b
   ) public pure returns (string memory) {
     return StringUtils.concatenate(a, b);
   }
 
-  /// @dev Tests the "equals" string method
+  /// @dev Tests the "equals" method
   function equals(
     string calldata a,
     string calldata b
   ) public pure returns (bool) {
     return StringUtils.equals(a, b);
   }
+
+  /// @dev Tests the "contains" method
+  function contains(
+    string calldata a,
+    string calldata b
+  ) public pure returns (bool) {
+    return StringUtils.contains(a, b);
+  }  
+
+  /// @dev Tests the "substring" method
+  function substring(
+    string calldata a,
+    uint256 from,
+    uint256 to
+  ) public pure returns (string memory) {
+    return StringUtils.substring(a, from, to);
+  }    
 }

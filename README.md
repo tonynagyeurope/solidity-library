@@ -32,7 +32,9 @@ scripts/
   [Deployment and utility scripts in TypeScript]
 
 test/
-  [Hardhat tests for the contracts]
+  [Hardhat tests for the libraries]
+    - String Utils Test
+    - 
 
 hardhat.config.ts         // Hardhat configuration file
 package.json              // Node.js package file
