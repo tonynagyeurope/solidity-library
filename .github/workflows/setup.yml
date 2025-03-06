@@ -31,12 +31,12 @@ jobs:
       # 5. Testing the string manipulation methods and making gas report
       - name: Testing methods and making gas report
         run: npx hardhat test
-      # Hardhat Gas Reporter had been removed temporarily due to dependency conflicts
-      # - name: Upload Gas Report (click to download)
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: gas-report
-      #     path: gas-report.txt
+
+      - name: Upload Gas Report (click to download)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-report
+          path: gas-report.txt
 
       # 6. Making test coverage report
       - name: Making test coverage report
