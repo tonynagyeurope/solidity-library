@@ -22,7 +22,7 @@ This project is a Solidity library designed to provide utility functions and hel
 - **Automatic Test Coverage Report:** Uses CI (Github Actions) generating test coverage report.
 
 ## Library Structure
-
+```
 contracts/
   - CustomErrors.sol       // Custom error definitions with NatSpec
   - Modifiers.sol          // Common modifiers for contracts
