@@ -1,6 +1,6 @@
 # solidity-library
 
-Useful solidity utils for developers by Tony Nagy
+Useful solidity utils for developers
 
 # Solidity Library for Crypto Payment Solutions
 
