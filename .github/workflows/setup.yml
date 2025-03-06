@@ -1,4 +1,4 @@
-name: CI - Solidity Library - installing, testing string utilities, uploading artifacts
+name: CI - installing, deploying, testing, gas report, test coverage report, upload artifacts
 
 # We run this test only for push events
 on:
@@ -22,7 +22,7 @@ jobs:
 
       # 3. Install the dependecies
       - name: Installing dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       # 4. Compile the project
       - name: Compiling project
@@ -36,12 +36,13 @@ jobs:
         with:
           name: gas-report
           path: gas-report.txt
+        if: success()          
 
-      # 5. Making test coverage report
+      # 6. Making test coverage report
       - name: Making test coverage report
         run: npx hardhat coverage            
 
-      # 6. Saving the artifacts
+      # 7. Saving the artifacts
       - name: Saving artifacts
         uses: actions/upload-artifact@v4
         with:
