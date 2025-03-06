@@ -4,8 +4,8 @@ Useful solidity utils for developers
 
 # Solidity Library for Crypto Payment Solutions
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI Status](https://github.com/tonynagyeurope/solidity-library/actions/workflows/ci.yml/badge.svg)](https://github.com/tonynagyeurope/solidity-library/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Overview
 
