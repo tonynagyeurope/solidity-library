@@ -24,10 +24,10 @@ This project is a Solidity library designed to provide utility functions and hel
 ## Library Structure
 
 contracts/
-  CustomErrors.sol       // Custom error definitions with NatSpec
-  Modifiers.sol          // Common modifiers for contracts
-  StringUtils.sol        // Utility functions for string manipulation
-  TokenUtils.sol         // Functions for token management
+  - CustomErrors.sol       // Custom error definitions with NatSpec
+  - Modifiers.sol          // Common modifiers for contracts
+  - StringUtils.sol        // Utility functions for string manipulation
+  - TokenUtils.sol         // Functions for token management
 
 scripts/
   [Deployment and utility scripts in TypeScript]
