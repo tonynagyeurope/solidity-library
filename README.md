@@ -23,10 +23,6 @@ This project is a Solidity library designed to provide utility functions and hel
 
 ## Library Structure
 
-contracts/libs/: Source codes for the libraries (StringUtils.sol, TokenUtils.sol).
-contracts/test/: Testing contracts.
-test/: Hardhat tests in TypeScript.
-
 contracts/
   CustomErrors.sol       // Custom error definitions with NatSpec
   Modifiers.sol          // Common modifiers for contracts
