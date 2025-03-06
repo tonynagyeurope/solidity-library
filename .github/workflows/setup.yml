@@ -1,4 +1,4 @@
-name: CI - installing, deploying, testing, gas report, test coverage report, upload artifacts
+name: CI/CD Build
 
 # We run this test only for push events
 on:
