@@ -18,6 +18,8 @@ This project is a Solidity library designed to provide utility functions and hel
 - **TypeScript Integration:** Supporting scripts for deployment and testing are written in TypeScript.
 - **Hardhat Environment:** Uses Hardhat for compiling, testing, and deploying contracts.
 - **Cross-Platform Development:** Developed on Linux Ubuntu with a Node.js environment.
+- **Automatic Gas Report:** Uses CI (Github Actions) for gas reporting with Hardhat Gas Reporter.
+- **Automatic Test Coverage Report:** Uses CI (Github Actions) generating test coverage report.
 
 ## Library Structure
 
@@ -33,9 +35,14 @@ scripts/
 
 test/
   [Hardhat tests for the libraries]
-    - Installation, compilation tests and artifact uploads
+    - Installation
+    - Compilation test
+    - Contract deploy test
     - StringUtils Tests
     - Automated code formatting
+    - Automated test coverage report
+    - Automated gas usage report
+    - Automated artifact (report file) uploads
 
 hardhat.config.ts         // Hardhat configuration file
 package.json              // Node.js package file
