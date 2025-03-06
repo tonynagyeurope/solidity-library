@@ -47,7 +47,7 @@ hardhat.config.ts         // Hardhat configuration file
 package.json              // Node.js package file
 tsconfig.json             // TypeScript configuration file
 README.md                 // This file
-
+```
 ## Examples
 
 ### TokenUtils example
@@ -130,12 +130,12 @@ GitHub Actions for each push and pull request:
 ## Contributing
 
 Contributions are welcome! To contribute:
-
+```
     - Fork the repository.
     - Create a new branch for your feature or bug fix.
     - Commit your changes with clear messages.
     - Submit a pull request detailing your changes.
-
+```
 Please adhere to the existing coding standards and document your code with NatSpec comments where appropriate.
 
 ## License
@@ -145,7 +145,7 @@ This project is licensed under the MIT License.
 ## Contact
 
 For further information or any questions, please contact:
-
+````
     Developer: Tony Nagy
     Email: tony@imagella.com or tony.nagy.europe@gmail.com
     Website: www.imagella.com
