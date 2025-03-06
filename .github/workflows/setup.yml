@@ -26,11 +26,20 @@ jobs:
 
       # 4. Compile the project
       - name: Compiling project
-        run: npx hardhat compile
+        run: npx hardhat compile    
 
-      # 5. Testing the string manipulation methods
-      - name: Testing string manipulation methods
+      # 5. Testing the string manipulation methods and making gas report
+      - name: Testing methods and making gas report
         run: npx hardhat test
+      - name: Upload Gas Report (click to download)
+        uses: actions/upload-artifact@v3
+        with:
+          name: gas-report
+          path: gas-report.txt
+
+      # 5. Making test coverage report
+      - name: Making test coverage report
+        run: npx hardhat coverage            
 
       # 6. Saving the artifacts
       - name: Saving artifacts

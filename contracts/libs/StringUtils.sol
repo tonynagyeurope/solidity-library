@@ -29,7 +29,7 @@ library StringUtils {
    */
   function bytes32ToString(
     bytes32 _bytes32
-  ) public pure returns (string memory) {
+  ) internal pure returns (string memory) {
     uint8 i = 0;
     while (i < 32 && _bytes32[i] != 0) {
       i++;
