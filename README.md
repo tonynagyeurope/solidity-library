@@ -23,6 +23,10 @@ This project is a Solidity library designed to provide utility functions and hel
 
 ## Library Structure
 
+contracts/libs/: Source codes for the libraries (StringUtils.sol, TokenUtils.sol).
+contracts/test/: Testing contracts.
+test/: Hardhat tests in TypeScript.
+
 contracts/
   CustomErrors.sol       // Custom error definitions with NatSpec
   Modifiers.sol          // Common modifiers for contracts
@@ -50,7 +54,7 @@ README.md                 // This file
 
 ## Examples
 
-### TokenUtils example:
+### TokenUtils example
 
     import { TokenUtils } from "./libs/TokenUtils.sol";
     
@@ -60,7 +64,7 @@ README.md                 // This file
         }
     }
 
-### StringUtils Example:
+### StringUtils Example
 
     import { StringUtils } from "./libs/StringUtils.sol";
     
@@ -69,20 +73,24 @@ README.md                 // This file
             return StringUtils.substring(str, 0, 3); // Pl. "Hello" -> "Hel"
         }
     }
-    
+
+## Functional tests and coverage report (03/06/2025)
+
+![kép](https://github.com/user-attachments/assets/d9a021a9-1607-4f21-8769-1641c4922d5b)
+
 ## Installation
 
-1. **Clone the repository:**
+1. **Clone the repository**
 
    ```bash
    git clone <REPO_URL>
    cd solidity-library
 
-2. **Install dependencies:**
+2. **Install dependencies**
 
     npm install
 
-3. **Configure Environment:**
+3. **Configure Environment**
 
     Ensure Node.js (v14 or later) is installed.
     Set up any environment variables in a .env file if needed.
@@ -116,14 +124,21 @@ Tests are implemented using Hardhat's testing framework. To run the tests, execu
 
     npx hardhat test
 
+## CI/CD and gas report
+
+GitHub Actions for each push and pull request:
+
+  - Runs tests (npx hardhat test).
+  - Checks gas costs and uploads gas-report.txt as an artifact (available for download in the Actions tab).
+
 ## Contributing
 
 Contributions are welcome! To contribute:
 
-    Fork the repository.
-    Create a new branch for your feature or bug fix.
-    Commit your changes with clear messages.
-    Submit a pull request detailing your changes.
+    - Fork the repository.
+    - Create a new branch for your feature or bug fix.
+    - Commit your changes with clear messages.
+    - Submit a pull request detailing your changes.
 
 Please adhere to the existing coding standards and document your code with NatSpec comments where appropriate.
 
