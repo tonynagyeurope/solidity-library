@@ -56,5 +56,5 @@ contract TestContractStringUtils {
   /// @dev Tests the "bytes32ToString" method
   function bytes32ToString(bytes32 _bytes32) public pure returns (string memory) {
     return StringUtils.bytes32ToString(_bytes32);
-  }   
+  }     
 }

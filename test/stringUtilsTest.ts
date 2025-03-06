@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { ethers as hardhatEthers } from 'hardhat';
 
-describe('Contract Deployment and Address Retrieval', function () {
+describe('String Utils Test Contract Deployment and Address Retrieval', function () {
   let contract: Contract;
   let contractAddress: string;
 
@@ -31,9 +31,9 @@ describe('Contract Deployment and Address Retrieval', function () {
     const b: string = 'Solidity';
     const c: string = 'Ethereum';
     const resultEqual = await contract.equals(a, b);
-    expect(resultEqual).to.equal(true);
+    expect(resultEqual).to.be.true;
     const resultNotEqual = await contract.equals(a, c);
-    expect(resultNotEqual).to.equal(false);
+    expect(resultNotEqual).to.be.false;
   });
 
   it('should test the contains method', async function () {
@@ -41,9 +41,9 @@ describe('Contract Deployment and Address Retrieval', function () {
     const b: string = 'Tony';
     const c: string = 'Ethereum';
     const resultEqual = await contract.contains(a, b);
-    expect(resultEqual).to.equal(true);
+    expect(resultEqual).to.be.true;
     const resultNotEqual = await contract.contains(a, c);
-    expect(resultNotEqual).to.equal(false);
+    expect(resultNotEqual).to.be.false;
   });
 
   it('should test the substring method', async function () {
