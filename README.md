@@ -4,8 +4,8 @@ Useful solidity utils for developers
 
 # Solidity Library for Crypto Payment Solutions
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI Status](https://github.com/tonynagyeurope/solidity-library/actions/workflows/setup.yml/badge.svg)](https://github.com/tonynagyeurope/solidity-library/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Overview
 
@@ -22,13 +22,12 @@ This project is a Solidity library designed to provide utility functions and hel
 - **Automatic Test Coverage Report:** Uses CI (Github Actions) generating test coverage report.
 
 ## Library Structure
-
-````
+```
 contracts/
-  CustomErrors.sol       // Custom error definitions with NatSpec
-  Modifiers.sol          // Common modifiers for contracts
-  StringUtils.sol        // Utility functions for string manipulation
-  TokenUtils.sol         // Functions for token management
+  - CustomErrors.sol       // Custom error definitions with NatSpec
+  - Modifiers.sol          // Common modifiers for contracts
+  - StringUtils.sol        // Utility functions for string manipulation
+  - TokenUtils.sol         // Functions for token management
 
 scripts/
   [Deployment and utility scripts in TypeScript]
@@ -48,21 +47,46 @@ hardhat.config.ts         // Hardhat configuration file
 package.json              // Node.js package file
 tsconfig.json             // TypeScript configuration file
 README.md                 // This file
+```
+## Examples
 
+### TokenUtils example
+
+    import { TokenUtils } from "./libs/TokenUtils.sol";
+    
+    contract MyTokenChecker {
+        function checkToken(address token) public pure returns (bool) {
+            return TokenUtils.isValidToken(token);
+        }
+    }
+
+### StringUtils Example
+
+    import { StringUtils } from "./libs/StringUtils.sol";
+    
+    contract MyContract {
+        function getSubstring(string memory str) public pure returns (string memory) {
+            return StringUtils.substring(str, 0, 3); // Pl. "Hello" -> "Hel"
+        }
+    }
+
+## Functional tests and coverage report (03/06/2025)
+
+![kép](https://github.com/user-attachments/assets/d9a021a9-1607-4f21-8769-1641c4922d5b)
 
 ## Installation
 
-1. **Clone the repository:**
+1. **Clone the repository**
 
    ```bash
    git clone <REPO_URL>
    cd solidity-library
 
-2. **Install dependencies:**
+2. **Install dependencies**
 
     npm install
 
-3. **Configure Environment:**
+3. **Configure Environment**
 
     Ensure Node.js (v14 or later) is installed.
     Set up any environment variables in a .env file if needed.
@@ -86,7 +110,7 @@ For deployment or running scripts written in TypeScript:
 
     npx hardhat run scripts/deploy.ts --network <network_name>
 
-## API Documentation
+## Library Documentation
 
 The contracts include NatSpec comments that describe the purpose, parameters, and return values for each function. You can generate API documentation using tools that parse NatSpec comments or refer directly to the source code.
 
@@ -96,15 +120,22 @@ Tests are implemented using Hardhat's testing framework. To run the tests, execu
 
     npx hardhat test
 
+## CI/CD and gas report
+
+GitHub Actions for each push and pull request:
+
+  - Runs tests (npx hardhat test).
+  - Checks gas costs and uploads gas-report.txt as an artifact (available for download in the Actions tab).
+
 ## Contributing
 
 Contributions are welcome! To contribute:
-
-    Fork the repository.
-    Create a new branch for your feature or bug fix.
-    Commit your changes with clear messages.
-    Submit a pull request detailing your changes.
-
+```
+    - Fork the repository.
+    - Create a new branch for your feature or bug fix.
+    - Commit your changes with clear messages.
+    - Submit a pull request detailing your changes.
+```
 Please adhere to the existing coding standards and document your code with NatSpec comments where appropriate.
 
 ## License
@@ -114,7 +145,7 @@ This project is licensed under the MIT License.
 ## Contact
 
 For further information or any questions, please contact:
-
+````
     Developer: Tony Nagy
     Email: tony@imagella.com or tony.nagy.europe@gmail.com
     Website: www.imagella.com
