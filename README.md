@@ -23,7 +23,6 @@ This project is a Solidity library designed to provide utility functions and hel
 
 ## Library Structure
 
-````
 contracts/
   CustomErrors.sol       // Custom error definitions with NatSpec
   Modifiers.sol          // Common modifiers for contracts
@@ -49,7 +48,28 @@ package.json              // Node.js package file
 tsconfig.json             // TypeScript configuration file
 README.md                 // This file
 
+## Examples
 
+### TokenUtils example:
+
+    import { TokenUtils } from "./libs/TokenUtils.sol";
+    
+    contract MyTokenChecker {
+        function checkToken(address token) public pure returns (bool) {
+            return TokenUtils.isValidToken(token);
+        }
+    }
+
+### StringUtils Example:
+
+    import { StringUtils } from "./libs/StringUtils.sol";
+    
+    contract MyContract {
+        function getSubstring(string memory str) public pure returns (string memory) {
+            return StringUtils.substring(str, 0, 3); // Pl. "Hello" -> "Hel"
+        }
+    }
+    
 ## Installation
 
 1. **Clone the repository:**
@@ -86,7 +106,7 @@ For deployment or running scripts written in TypeScript:
 
     npx hardhat run scripts/deploy.ts --network <network_name>
 
-## API Documentation
+## Library Documentation
 
 The contracts include NatSpec comments that describe the purpose, parameters, and return values for each function. You can generate API documentation using tools that parse NatSpec comments or refer directly to the source code.
 
