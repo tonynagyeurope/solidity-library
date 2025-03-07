@@ -79,7 +79,7 @@ README.md                 // This file
 1. **Clone the repository**
 
    ```bash
-   git clone <REPO_URL>
+   git clone https://github.com/tonynagyeurope/solidity-library.git
    cd solidity-library
 
 2. **Install dependencies**
