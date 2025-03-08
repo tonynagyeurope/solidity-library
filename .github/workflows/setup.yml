@@ -1,4 +1,4 @@
-name: CI/CD Build
+name: CI/CD
 
 # We run this test only for push events
 on:
