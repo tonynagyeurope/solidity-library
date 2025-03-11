@@ -13,8 +13,9 @@ This project is a Solidity library designed to provide utility functions and hel
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/a50e2b69-b292-4296-9b18-9f05cdd8d890" alt="Imagella Crypto Payment Solution">
-  <br>
+  <p>
   <figcaption><i>Imagella: Empowering seamless micropayments with blockchain</i></figcaption>
+  </p>  
 </div>
 
 Additionally, the solution includes a robust fallback mechanism that leverages multiple low-fee networks in case of network congestion or unavailability. The library is continuously developed and documented with NatSpec comments to ensure clear, self-explanatory code.
