@@ -13,6 +13,7 @@ This project is a Solidity library designed to provide utility functions and hel
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/a50e2b69-b292-4296-9b18-9f05cdd8d890" alt="Imagella Crypto Payment Solution">
+  <br>
   <figcaption><i>Imagella: Empowering seamless micropayments with blockchain</i></figcaption>
 </div>
 
