@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
-import { Contract } from 'ethers';
 import { ExternalContract, TestContractHelperFunctions } from '../typechain';
 
 describe('Helper Functions Tests: Contract Deployments and testing the decodeCustomError function', function () {

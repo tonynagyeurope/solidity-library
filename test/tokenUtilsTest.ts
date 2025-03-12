@@ -1,9 +1,9 @@
 import { expect } from 'chai';
-import { Contract } from 'ethers';
+import { TestContractTokenUtils } from '../typechain';
 import { ethers as hardhatEthers } from 'hardhat';
 
 describe('Token Utils Test Contract Deployment and Address Retrieval', function () {
-  let contract: Contract;
+  let contract: TestContractTokenUtils;
   let contractAddress: string;
 
   before(async function () {

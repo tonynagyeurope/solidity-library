@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 /**
  * @title Helper Functions Library
- * @dev Provides reusable helper functions for Solidity contracts
+ * @dev Provides helper functions to decode custom error data from try/catch block bytes and more.
  * @author Tony Nagy
  */
 library HelperFunctions {
