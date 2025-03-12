@@ -37,6 +37,7 @@ contracts/
   - Modifiers.sol          // Common modifiers for contracts
   - StringUtils.sol        // Utility functions for string manipulation
   - TokenUtils.sol         // Functions for token management
+  - HelperFunctions.sol    // Helper functions such as "decodeCustomError", useful in try/catch blocks
 
 scripts/
   [Deployment and utility scripts in TypeScript]
@@ -58,6 +59,31 @@ tsconfig.json             // TypeScript configuration file
 README.md                 // This file
 ```
 ## Examples
+
+### HelperFunctions example
+
+import "./HelperFunctions.sol";
+
+/// @notice Custom error definition.
+error CustomError(uint256 code, string message);
+
+contract Example {
+    using HelperFunctions for bytes;
+
+    /// @notice A function that reverts with a custom error if input is zero.
+    function doSomething(uint256 x) external pure returns (uint256) {
+        if (x == 0) revert CustomError(1, "x cannot be zero");
+        return x * 2;
+    }
+
+    /// @notice Decodes revert error data using HelperFunctions.
+    /// @param errorData The revert data from a failed call.
+    /// @return selector The error selector.
+    /// @return params The custom error parameters.
+    function decodeError(bytes memory errorData) external pure returns (bytes4 selector, bytes memory params) {
+        (selector, params) = HelperFunctions.decodeCustomError(errorData);
+    }
+}
 
 ### TokenUtils example
 
