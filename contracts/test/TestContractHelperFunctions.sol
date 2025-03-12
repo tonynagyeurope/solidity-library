@@ -5,15 +5,19 @@ import '../libs/HelperFunctions.sol';
 
 /// @notice Custom error definition.
 error CustomError(uint256 code, string message);
-
 /// @dev This is just a helper contract inside for testing custom error handling
-contract ExternalContract {
+contract ExternalContract {    
+    uint256 constant SAMPLE_ERROR_CODE = 100;
     // A function that throws a custom error if the value is zero.
     function doSomething(uint256 value) external pure returns (uint256) {
         if (value == 0) {
-            revert CustomError(100, "Value must be non-zero");
+            revert CustomError(SAMPLE_ERROR_CODE, "Value must be non-zero");
         }
         return value * 2;
+    }
+
+    function getSampleErrorCodeStr() external pure returns (string memory) {
+        return HelperFunctions.uint2str(SAMPLE_ERROR_CODE);
     }
 }
 

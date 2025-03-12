@@ -1,6 +1,5 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { Contract } from "ethers";
 import { ExternalContract, TestContractHelperFunctions } from "../typechain";
 
 describe("Helper Functions Tests: Contract Deployments and testing the decodeCustomError function", function () {
@@ -28,8 +27,11 @@ describe("Helper Functions Tests: Contract Deployments and testing the decodeCus
   });
 
   it("should return the custom error message for zero input", async function () {
-    // Call execute with zero to trigger the custom error
+    // Call execute with zero to trigger the Custom Error
     const result = await testContract.execute(0);
-    expect(result).to.equal("Caught CustomError: Value must be non-zero (code 100)");
+    // Getting the extracted sample code from the error catch!
+    const sampleErrorCode = await externalContract.getSampleErrorCodeStr();
+    expect(result).to.equal("Caught CustomError: Value must be non-zero (code "+ sampleErrorCode +")");
+    console.log("Extracted Custom Error code: ", sampleErrorCode);
   });
 });
