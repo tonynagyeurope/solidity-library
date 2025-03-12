@@ -22,5 +22,5 @@ describe('Token Utils Test Contract Deployment and Address Retrieval', function 
     // We can trust the previus test statement that validates the contract address
     const valid = await contract.isValidToken(contractAddress);
     expect(valid).to.be.true;
-  });  
+  });
 });

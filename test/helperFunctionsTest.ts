@@ -1,31 +1,43 @@
+<<<<<<< HEAD
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { ExternalContract, TestContractHelperFunctions } from "../typechain";
+=======
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
+import { Contract } from 'ethers';
+import { ExternalContract, TestContractHelperFunctions } from '../typechain';
+>>>>>>> 3093971fd758a8847e0aded1244d15d898360e43
 
-describe("Helper Functions Tests: Contract Deployments and testing the decodeCustomError function", function () {
+describe('Helper Functions Tests: Contract Deployments and testing the decodeCustomError function', function () {
   let externalContract: ExternalContract;
   let testContract: TestContractHelperFunctions;
 
   beforeEach(async function () {
     // Deploy ExternalContract
-    const ExternalContractFactory = await ethers.getContractFactory("ExternalContract");
+    const ExternalContractFactory = await ethers.getContractFactory('ExternalContract');
     externalContract = (await ExternalContractFactory.deploy()) as ExternalContract;
     await externalContract.waitForDeployment();
-    console.log("ExternalContract deployed at: ", externalContract.target);
+    console.log('ExternalContract deployed at: ', externalContract.target);
 
     // Deploy TestContractHelperFunctions with the address of ExternalContract
-    const TestContractHelperFunctionsFactory = await ethers.getContractFactory("TestContractHelperFunctions");
-    testContract = (await TestContractHelperFunctionsFactory.deploy(externalContract.target)) as TestContractHelperFunctions;
+    const TestContractHelperFunctionsFactory = await ethers.getContractFactory(
+      'TestContractHelperFunctions'
+    );
+    testContract = (await TestContractHelperFunctionsFactory.deploy(
+      externalContract.target
+    )) as TestContractHelperFunctions;
     await testContract.waitForDeployment();
-    console.log("TestContractHelperFunctions deployed at: ", testContract.target);
+    console.log('TestContractHelperFunctions deployed at: ', testContract.target);
   });
 
   it("should return 'Operation succeeded' for non-zero input", async function () {
     // Call execute with a non-zero value
     const result = await testContract.execute(5);
-    expect(result).to.equal("Operation succeeded");
+    expect(result).to.equal('Operation succeeded');
   });
 
+<<<<<<< HEAD
   it("should return the custom error message for zero input", async function () {
     // Call execute with zero to trigger the Custom Error
     const result = await testContract.execute(0);
@@ -33,5 +45,11 @@ describe("Helper Functions Tests: Contract Deployments and testing the decodeCus
     const sampleErrorCode = await externalContract.getSampleErrorCodeStr();
     expect(result).to.equal("Caught CustomError: Value must be non-zero (code "+ sampleErrorCode +")");
     console.log("Extracted Custom Error code: ", sampleErrorCode);
+=======
+  it('should return the custom error message for zero input', async function () {
+    // Call execute with zero to trigger the custom error
+    const result = await testContract.execute(0);
+    expect(result).to.equal('Caught CustomError: Value must be non-zero (code 100)');
+>>>>>>> 3093971fd758a8847e0aded1244d15d898360e43
   });
 });

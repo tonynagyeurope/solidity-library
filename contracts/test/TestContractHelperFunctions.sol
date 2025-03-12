@@ -6,6 +6,7 @@ import '../libs/HelperFunctions.sol';
 /// @notice Custom error definition.
 error CustomError(uint256 code, string message);
 /// @dev This is just a helper contract inside for testing custom error handling
+<<<<<<< HEAD
 contract ExternalContract {    
     uint256 constant SAMPLE_ERROR_CODE = 100;
     // A function that throws a custom error if the value is zero.
@@ -19,38 +20,60 @@ contract ExternalContract {
     function getSampleErrorCodeStr() external pure returns (string memory) {
         return HelperFunctions.uint2str(SAMPLE_ERROR_CODE);
     }
+=======
+contract ExternalContract {
+  // A function that throws a custom error if the value is zero.
+  function doSomething(uint256 value) external pure returns (uint256) {
+    if (value == 0) {
+      revert CustomError(100, 'Value must be non-zero');
+    }
+    return value * 2;
+  }
+>>>>>>> 3093971fd758a8847e0aded1244d15d898360e43
 }
 
 /// @notice This is the test contract for testing all the internal helper functions from the library
 contract TestContractHelperFunctions {
-    using HelperFunctions for bytes;
+  using HelperFunctions for bytes;
 
-    ExternalContract externalContract;    
+  ExternalContract externalContract;
 
-    /// @notice Passing the address of the ExternalContract in the constructor.
-    constructor(address externalContractAddress) {
-        externalContract = ExternalContract(externalContractAddress);
+  /// @notice Passing the address of the ExternalContract in the constructor.
+  constructor(address externalContractAddress) {
+    externalContract = ExternalContract(externalContractAddress);
+  }
+
+  /// @notice Calls the externalContract.doSomething function and catches the potential errors.
+  function execute(uint256 value) external view returns (string memory) {
+    try externalContract.doSomething(value) returns (uint256) {
+      return 'Operation succeeded';
+    } catch (bytes memory lowLevelData) {
+      bytes4 errorSelector; // The 4 bytes error selector.
+      bytes memory params; // The custom error parameters.
+
+      // Decodes revert error data using HelperFunctions here.
+      (errorSelector, params) = HelperFunctions.decodeCustomError(lowLevelData);
+
+      // We check here is the error selector matches the CustomError selector.
+      if (errorSelector == CustomError.selector) {
+        // Encoding data after the error selector.
+        (uint256 errorCode, string memory errorMessage) = abi.decode(
+          params,
+          (uint256, string)
+        );
+        return
+          string(
+            abi.encodePacked(
+              'Caught CustomError: ',
+              errorMessage,
+              ' (code ',
+              HelperFunctions.uint2str(errorCode),
+              ')'
+            )
+          );
+      } else {
+        return 'Caught unknown error';
+      }
     }
-
-    /// @notice Calls the externalContract.doSomething function and catches the potential errors.
-    function execute(uint256 value) external view returns (string memory) {
-        try externalContract.doSomething(value) returns (uint256) {
-            return "Operation succeeded";
-        } catch (bytes memory lowLevelData) {
-            bytes4 errorSelector; // The 4 bytes error selector.
-            bytes memory params; // The custom error parameters.
-
-            // Decodes revert error data using HelperFunctions here.
-            (errorSelector, params) = HelperFunctions.decodeCustomError(lowLevelData);
-
-            // We check here is the error selector matches the CustomError selector.
-            if (errorSelector == CustomError.selector) {
-                // Encoding data after the error selector.
-                (uint256 errorCode, string memory errorMessage) = abi.decode(params, (uint256, string));
-                return string(abi.encodePacked("Caught CustomError: ", errorMessage, " (code ", HelperFunctions.uint2str(errorCode), ")"));
-            } else {
-                return "Caught unknown error";
-            }
-        }
-    }    
+  }
 }

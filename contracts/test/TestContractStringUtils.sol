@@ -32,7 +32,7 @@ contract TestContractStringUtils {
     string calldata b
   ) public pure returns (bool) {
     return StringUtils.contains(a, b);
-  }  
+  }
 
   /// @dev Tests the "substring" method
   function substring(
@@ -41,20 +41,22 @@ contract TestContractStringUtils {
     uint256 to
   ) public pure returns (string memory) {
     return StringUtils.substring(a, from, to);
-  }    
+  }
 
   /// @dev Tests the "trim" method
   function trim(string memory str) public pure returns (string memory) {
     return StringUtils.trim(str);
-  } 
+  }
 
   /// @dev Tests the "length" method
   function length(string memory str) public pure returns (uint256) {
     return StringUtils.length(str);
-  }   
+  }
 
   /// @dev Tests the "bytes32ToString" method
-  function bytes32ToString(bytes32 _bytes32) public pure returns (string memory) {
+  function bytes32ToString(
+    bytes32 _bytes32
+  ) public pure returns (string memory) {
     return StringUtils.bytes32ToString(_bytes32);
-  }     
+  }
 }

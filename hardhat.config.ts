@@ -21,9 +21,9 @@ const config: HardhatUserConfig = {
     noColors: true, // Proper format for CI
   },
   typechain: {
-    outDir: "typechain",  
-    target: "ethers-v6",
-  },  
+    outDir: 'typechain',
+    target: 'ethers-v6',
+  },
 };
 
 export default config;
