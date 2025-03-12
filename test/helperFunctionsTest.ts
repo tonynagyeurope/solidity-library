@@ -30,12 +30,14 @@ describe('Helper Functions Tests: Contract Deployments and testing the decodeCus
     expect(result).to.equal('Operation succeeded');
   });
 
-  it("should return the custom error message for zero input", async function () {
+  it('should return the custom error message for zero input', async function () {
     // Call execute with zero to trigger the Custom Error
     const result = await testContract.execute(0);
     // Getting the extracted sample code from the error catch!
     const sampleErrorCode = await externalContract.getSampleErrorCodeStr();
-    expect(result).to.equal("Caught CustomError: Value must be non-zero (code "+ sampleErrorCode +")");
-    console.log("Extracted Custom Error code: ", sampleErrorCode);
+    expect(result).to.equal(
+      'Caught CustomError: Value must be non-zero (code ' + sampleErrorCode + ')'
+    );
+    console.log('Extracted Custom Error code: ', sampleErrorCode);
   });
 });
