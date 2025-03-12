@@ -3,6 +3,7 @@ import '@nomicfoundation/hardhat-ethers';
 import '@nomicfoundation/hardhat-toolbox';
 import 'solidity-coverage';
 import 'hardhat-gas-reporter';
+import '@typechain/hardhat';
 
 const config: HardhatUserConfig = {
   solidity: '0.8.20',
@@ -19,6 +20,10 @@ const config: HardhatUserConfig = {
     outputFile: 'gas-report.txt', // Saves the gas report in this file
     noColors: true, // Proper format for CI
   },
+  typechain: {
+    outDir: "typechain",  
+    target: "ethers-v6",
+  },  
 };
 
 export default config;

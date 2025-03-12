@@ -39,4 +39,30 @@ library HelperFunctions {
             result[i] = data[start + i];
         }
     }
+
+    /**
+     * @notice Helper function to convert uint256 to string.
+     * @param _i The source date in uint256 type.
+     * @return result The extracted string.
+     */
+    function uint2str(uint256 _i) internal pure returns (string memory result) {
+        if (_i == 0) {
+            return "0";
+        }
+        uint256 j = _i;
+        uint256 len;
+        while (j != 0) {
+            len++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(len);
+        uint256 k = len;
+        while (_i != 0) {
+            k = k - 1;
+            uint8 temp = uint8(48 + _i % 10);
+            bstr[k] = bytes1(temp);
+            _i /= 10;
+        }
+        return string(bstr);
+    }    
 }

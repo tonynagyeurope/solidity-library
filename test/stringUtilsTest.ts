@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { ethers as hardhatEthers } from 'hardhat';
 
-describe('String Utils Test Contract Deployment and Address Retrieval', function () {
+describe('String Utils Test Contract Deployment and String Utility Function Calls', function () {
   let contract: Contract;
   let contractAddress: string;
 
