@@ -62,7 +62,19 @@ README.md                 // This file
 
 ### HelperFunctions example
 
-import "./HelperFunctions.sol";
+**Solidity Custom Error Decoding with HelperFunctions**
+
+Unlock seamless error handling in your Solidity smart contracts with the `HelperFunctions` library! This powerful utility simplifies decoding custom error data from revert calls, transforming raw bytes into actionable insights. Key features include:
+
+- **Error Decoding**: Extract error selectors and parameters effortlessly with `decodeCustomError`.
+- **Byte Slicing**: Precisely manipulate byte arrays using the `slice` function.
+- **Number-to-String Conversion**: Convert `uint256` values to readable strings with `uint2str`.
+
+Paired with a robust test suite, this library catches and processes custom errors—like `CustomError(100, "Value must be non-zero")`—delivering clear, human-readable feedback. Whether you're debugging or enhancing user experience, `HelperFunctions` is your go-to tool for precision and reliability.
+
+Check out the [library](./contracts/libs/HelperFunctions.sol), [test contract](./contracts/test/TestContractHelperFunctions.sol), and [Hardhat tests](./test/helperFunctionsTest.ts) to see it in action!
+
+import "./contracts/libs/HelperFunctions.sol";
 
 /// @notice Custom error definition.
 error CustomError(uint256 code, string message);
@@ -87,7 +99,7 @@ contract Example {
 
 ### TokenUtils example
 
-    import { TokenUtils } from "./libs/TokenUtils.sol";
+    import { TokenUtils } from "./contracts/libs/TokenUtils.sol";
     
     contract MyTokenChecker {
         function checkToken(address token) public pure returns (bool) {
@@ -97,7 +109,7 @@ contract Example {
 
 ### StringUtils Example
 
-    import { StringUtils } from "./libs/StringUtils.sol";
+    import { StringUtils } from "./contracts/libs/StringUtils.sol";
     
     contract MyContract {
         function getSubstring(string memory str) public pure returns (string memory) {
