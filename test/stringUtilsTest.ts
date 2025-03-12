@@ -7,7 +7,8 @@ describe('String Utils Test Contract Deployment and String Utility Function Call
   let contractAddress: string;
 
   before(async function () {
-    const TestContractStringUtils = await hardhatEthers.getContractFactory('TestContractStringUtils');
+    const TestContractStringUtils =
+      await hardhatEthers.getContractFactory('TestContractStringUtils');
     contract = await TestContractStringUtils.deploy();
     await contract.waitForDeployment();
     contractAddress = contract.target as string;
@@ -69,6 +70,6 @@ describe('String Utils Test Contract Deployment and String Utility Function Call
   it('should test the length method', async function () {
     const abcString: string = 'abc';
     const result = await contract.length(abcString);
-    expect(result).to.equal(3);    
-  });  
+    expect(result).to.equal(3);
+  });
 });

@@ -13,5 +13,5 @@ contract TestContractTokenUtils {
   /// @dev Tests the "isValidToken" method
   function isValidToken(address tokenAddress) public pure returns (bool) {
     return TokenUtils.isValidToken(tokenAddress);
-  }     
+  }
 }
