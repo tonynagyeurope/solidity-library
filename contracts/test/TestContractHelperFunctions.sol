@@ -13,26 +13,15 @@ import '../libs/HelperFunctions.sol';
 error CustomError(uint256 code, string message);
 
 /// @dev This is just a helper contract inside for testing custom error handling
-<<<<<<< HEAD
 contract ExternalContract {    
-    // This is the test error code that we would like extract from the bytes data with our library at the end
-    uint256 constant SAMPLE_ERROR_CODE = 100;
-    // A function that throws a custom error if the value is zero.
-    function doSomething(uint256 value) external pure returns (uint256) {
-        if (value == 0) {
-            revert CustomError(SAMPLE_ERROR_CODE, "Value must be non-zero");
-        }
-        return value * 2;
-=======
-contract ExternalContract {
+  // This is the test error code that we would like extract from the bytes data with our library at the end
   uint256 constant SAMPLE_ERROR_CODE = 100;
   // A function that throws a custom error if the value is zero.
   function doSomething(uint256 value) external pure returns (uint256) {
-    if (value == 0) {
-      revert CustomError(SAMPLE_ERROR_CODE, 'Value must be non-zero');
->>>>>>> 6d8e5be4ed4ae23124dda3496f05c243a6a4e2a3
-    }
-    return value * 2;
+      if (value == 0) {
+          revert CustomError(SAMPLE_ERROR_CODE, "Value must be non-zero");
+      }
+      return value * 2;
   }
 
   function getSampleErrorCodeStr() external pure returns (string memory) {
