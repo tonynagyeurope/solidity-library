@@ -43,7 +43,7 @@ contract TestContractHelperFunctions {
   /// @notice Passing uint to convert to string.
   function uint2str(uint256 _i) external pure returns (string memory result) {
     return HelperFunctions.uint2str(_i);
-  }  
+  }
 
   /// @notice Calls the externalContract.doSomething function and catches the potential errors.
   function execute(uint256 value) external view returns (string memory) {

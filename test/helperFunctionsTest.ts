@@ -28,7 +28,7 @@ describe('Helper Functions Tests: Contract Deployments and testing the decodeCus
     const result = await testContract.uint2str(1234567890);
     expect(result).to.equal('1234567890');
     console.log('Converted string: ', result);
-  });  
+  });
 
   it("should return 'Operation succeeded' for non-zero input", async function () {
     // Call execute with a non-zero value
