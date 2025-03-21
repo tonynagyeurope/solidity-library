@@ -7,7 +7,9 @@ describe('Checker Functions Utils Test Contract Deployment and Address Retrieval
   let contractAddress: string;
 
   before(async function () {
-    const TestContractCheckerFunctions = await hardhatEthers.getContractFactory('TestContractCheckerFunctions');
+    const TestContractCheckerFunctions = await hardhatEthers.getContractFactory(
+      'TestContractCheckerFunctions'
+    );
     contract = await TestContractCheckerFunctions.deploy();
     await contract.waitForDeployment();
     contractAddress = contract.target as string;
