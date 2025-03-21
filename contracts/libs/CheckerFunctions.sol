@@ -7,7 +7,7 @@ import './CustomErrors.sol';
 /// @notice Provides common modifier-like functions using structured custom errors
 /// @dev This library enhances modularity and reusability across contracts.
 /// @author Tony Nagy
-library Modifiers {
+library CheckerFunctions {
   using CustomErrors for *;
 
   /// @notice Ensures that only the contract owner can execute the function
