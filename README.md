@@ -194,6 +194,6 @@ This project is licensed under the MIT License.
 For further information or any questions, please contact:
 ````
     Developer: Tony Nagy
-    Email: tony@imagella.com or tony.nagy.europe@gmail.com
-    Website: www.imagella.com
+    Email: info@tonynagy.io
+    Website: www.tonynagy.io
 ````
