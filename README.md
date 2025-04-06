@@ -5,6 +5,7 @@ Useful solidity utils for developers
 # Solidity Library for Crypto Payment Solutions
 
 [![CI Status](https://github.com/tonynagyeurope/solidity-library/actions/workflows/setup.yml/badge.svg)](https://github.com/tonynagyeurope/solidity-library/actions)
+![Coverage](https://img.shields.io/badge/coverage-83%25-green)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Overview
@@ -116,6 +117,11 @@ contract Example {
             return StringUtils.substring(str, 0, 3); // Pl. "Hello" -> "Hel"
         }
     }
+
+## Code Formatting
+
+This project uses [Prettier](https://prettier.io/) to enforce consistent code style.  
+Formatting is automatically checked via GitHub Actions on each push and pull request.
 
 ## Functional tests and coverage report (03/06/2025)
 
