@@ -123,9 +123,9 @@ contract Example {
 This project uses [Prettier](https://prettier.io/) to enforce consistent code style.  
 Formatting is automatically checked via GitHub Actions on each push and pull request.
 
-## Functional tests and coverage report (03/06/2025)
+## Functional tests and coverage report (04/06/2025)
 
-![kép](https://github.com/user-attachments/assets/d9a021a9-1607-4f21-8769-1641c4922d5b)
+![image](https://github.com/user-attachments/assets/8708c681-fa37-49d5-a679-d627eb875505)
 
 ## Installation
 
